@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&family=Pacifico&family=Varela+Round&display=swap');
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+:root { 
+
+    --def-padding: 1.3rem;
+    --def-fs: .938rem; 
+    --def-border-radius: 1.2rem;
+
+    --font-family: 'Outfit', sans-serif; 
+    --fw-normal: 400;
+    --fw-bold: 700;
+
+    --clr-body-bg:hsl(212, 45%, 89%);
+    --clr-header: hsl(218, 44%, 22%);
+    --clr-content:hsl(220, 15%, 55%);
+    --clr-card-bg: hsl(0, 0%, 100%);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-body-bg);
+    min-height: 100vh;
+    font-family: var(--font-family);
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    flex-flow: column;
+
+    width: 25%;
+    height: 100%;
+    padding: .813rem;
+    background-color: var(--clr-card-bg); 
+    border-radius: var(--def-border-radius);
+}
+
+img {
+    border-radius: .5rem;
+}
+
+.content-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    gap: .5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    text-align: center;
+    padding: .6rem;
+    text-align: center;
+}
+
+.content-header,
+.content {
+    padding: 0 1rem;
+}
+
+.content-header {
+    font-size: 1.5rem;
+    color: var(--clr-header);
+    font-weight: var(--fw-bold);
+}
+
+.content {
+    font-size: var(--def-fs);
+    color: var(--clr-content);
+    font-weight: var(--fw-normal);
+}
+
+@media (max-width: 600px) {
+    main {
+        width: 87%;
+    }
+
+    .content-container {
+        padding: 0 .188rem;
+    }
+}
