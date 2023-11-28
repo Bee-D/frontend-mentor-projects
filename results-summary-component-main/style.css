@@ -1,0 +1,254 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('./assets/fonts/HankenGrotesk-VariableFont_wght.ttf')
+  format('truetype');
+}
+
+:root {
+  
+  /* Gradient Colors Setting */
+
+  --clr-primary-400-hsl: 252, 100%, 67%;
+  --clr-primary-500-hsl: 256, 72%, 46%;
+  --clr-secondary-400-hsl: 241, 81%, 54%;
+  --clr-secondart-500-hsl: 241, 72%,46%;
+
+  --def-gradient: linear-gradient(hsl(var(--clr-primary-400-hsl)), hsl(var(--clr-secondary-400-hsl)));
+  --gradient-cricle: linear-gradient(hsl(var(--clr-primary-500-hsl), 1), hsl(var(--clr-secondart-500-hsl), 0));
+
+  /* Neutral Colors Setting */
+
+  --clr-neutral-100-hsl: 0, 0%, 100%;
+  --clr-neutral-300-hsl: 221, 100%, 96%;
+  --clr-neutral-500-hsl: 241, 100%, 89%;
+  --clr-neutral-700-hsl: 224, 30%, 27%;
+
+  --clr-neutral-100: hsl(var(--clr-neutral-100-hsl));
+  --clr-neutral-300: hsl(var(--clr-neutral-300-hsl));
+  --clr-neutral-500: hsl(var(--clr-neutral-500-hsl));
+  --clr-neutral-700: hsl(var(--clr-neutral-700-hsl));
+
+  /* Accent Colors Setting */
+
+  --clr-accent-100-hsl: 0, 100%, 67%;
+  --clr-accent-300-hsl: 39, 100%, 56%;
+  --clr-accent-500-hsl: 166, 100%, 37%;
+  --clr-accent-700-hsl: 234, 85%, 45%;
+
+  --clr-accent-100: hsl(var(--clr-accent-100-hsl));
+  --clr-accent-300: hsl(var(--clr-accent-300-hsl));
+  --clr-accent-500: hsl(var(--clr-accent-500-hsl));
+  --clr-accent-700: hsl(var(--clr-accent-700-hsl));
+
+  /* Font Setting */
+
+  --def-ff: 'Hanken Grotesk', sans-serif;
+
+  --fs-100: 1.125rem;
+  --fs-200: 1.25rem;
+  --fs-300: 1.5rem;
+  --fs-500: 1.75rem;
+  --fs-700: 2rem;
+  --fs-900: 5rem;
+
+  --fw-normal: 500;
+  --fw-bold: 700;
+  --fw-black: 800;
+}
+
+body {
+  color: var(--clr-neutral-700);
+  font-family: var(--def-ff);
+  font-size: var(--fs-100);
+  font-weight: var(--fw-normal);
+
+  --border-radius: 1.5rem;
+  --padding: 2rem;
+}
+
+@media(min-width: 600px){
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+  }
+
+  .result-summary {
+    max-width: 46rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: .5rem 1rem 3rem hsl(var(--clr-neutral-700-hsl),.2);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+
+
+
+}
+
+.section-title {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-bold);
+}
+
+.results {
+  background: var(--def-gradient);
+  color: hsl(var(--clr-neutral-100-hsl), .7);
+  text-align: center;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.results,
+.summary {
+  padding: var(--padding);
+}
+
+.grid-flow {
+  display: grid;
+  align-items: start;
+  gap: 1rem;
+}
+
+.grid-flow[data-spacing='large'] {
+  gap: 2rem;
+}
+
+@media(min-width: 600px) {
+  .results {
+    border-radius: var(--border-radius);
+  }
+}
+
+.result-score {
+  display: grid;
+  place-content: center;
+  line-height: 1;
+  width: 12rem;
+  background: var(--gradient-cricle);
+  margin-inline: auto;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.result-score span {
+  display: block;
+  font-size: var(--fs-900);
+  font-weight: var(--fw-black);
+}
+
+.result-rank {
+  font-size: var(--fs-500);
+  font-weight: var(--fw-bold);
+  color: var(--clr-neutral-100);
+}
+
+.result-rank+p {
+  margin-inline: 1rem;
+}
+
+.flex-group {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: hsl(var(--accent-color), .1);
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+.summary-title {
+  color: hsl(var(--accent-color), .8);
+}
+
+.summary-item[data-item-type='accent-1'] {
+  --accent-color: var(--clr-accent-100-hsl);
+}
+
+.summary-item[data-item-type='accent-2'] {
+  --accent-color: var(--clr-accent-300-hsl);
+}
+
+.summary-item[data-item-type='accent-3'] {
+  --accent-color: var(--clr-accent-500-hsl);
+}
+
+.summary-item[data-item-type='accent-4'] {
+  --accent-color: var(--clr-accent-700-hsl);
+}
+
+.summary-score {
+  font-weight: var(--fw-bold);
+  color: hsl(var(--clr-neutral-700-hsl),.5);
+}
+
+.summary-score span {
+  color: var(--clr-neutral-700);
+}
+
+.button {
+  border: 0;
+  padding: .7rem 2rem;
+  border-radius: var(--border-radius);
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-700);
+  cursor: pointer;
+}
+
+.button:is(:hover, :focus-visible) {
+  background: var(--def-gradient);
+}
