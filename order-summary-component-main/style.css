@@ -1,0 +1,212 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+:root {
+  /* Primary Color Setting */
+  --clr-primary-pale-blue-100-hsl: 225, 100%, 94%;
+  --clr-primary-bright-blue-500-hsl: 245, 75%, 52%;
+  
+  --clr-primary-pale-blue-100: hsl(225, 100%, 94%);
+  --clr-primary-bright-blue-500: hsl(245, 75%, 52%);
+
+  /* Neutral Color Setting */
+  --clr-neutral-very-pale-blue-100-hsl: 225, 100%, 98%;
+  --clr-neutral-desaturated-blue-500-hsl: 224, 23%, 55%;
+  --clr-neutral-dark-blue-800-hsl: 223, 47%, 23%;
+
+  --clr-neutral-very-pale-blue-100: hsl(225, 100%, 98%);
+  --clr-neutral-desaturated-blue-500: hsl(224, 23%, 55%);
+  --clr-neutral-dark-blue-800: hsl(223, 47%, 23%);
+
+  /* Font Setting */
+  --ff-base: 'Red Hat Display', sans-serif;
+
+  --fs-100: .9rem;
+  --fs-300: 1.25rem;
+  --fs-500: 1.5rem;
+  --fs-700: 2rem;
+  --fs-900: 5rem;
+
+  --fw-normal: 500;
+  --fw-bold: 700;
+  --fw-black: 900;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  text-align: center;
+
+  background: var(--clr-primary-pale-blue-100) url('./images/pattern-background-desktop.svg') no-repeat;
+  color: var(--clr-neutral-desaturated-blue-500);
+
+  font-family: var(--ff-base);
+  font-size: var(--fs-100);
+  font-weight: var(--fw-normal);
+}
+
+@media(max-width: 600px) {
+  body {
+    background: var(--clr-primary-pale-blue-100) url('./images/pattern-background-mobile.svg') no-repeat;
+  }
+}
+
+.order_summary_component_card {
+  --content-padding: 1.3rem;
+  --content-spacing: 1.3rem;
+  --border-radius: 1rem;
+
+  width: 400px;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: .1rem 2rem 3rem hsl(var(--clr-neutral-dark-blue-800-hsl),.2);
+
+  background-color: white;
+}
+
+@media(max-width: 600px) {
+  .order_summary_component_card {
+    width: 85%;
+    margin: 3rem 1.5rem;
+  }
+}
+
+.flex-group {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--content-spacing);
+  padding: var(--content-padding);
+}
+
+.order_summary_content {
+  display: grid;
+  gap: calc(var(--content-spacing) / 2);
+}
+
+.order_summary_content .header {
+  color: var(--clr-neutral-dark-blue-800);
+
+  font-size: var(--fs-300);
+  font-weight: var(--fw-black);
+}
+
+.order_summary_content p {
+  padding: 0 .3rem;
+}
+
+.price-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem .6rem;
+  border-radius: calc(var(--border-radius) / 2);
+
+  background-color: var(--clr-neutral-very-pale-blue-100);
+}
+
+.price-container .plan-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.plan-container .plan {
+  color: var(--clr-neutral-dark-blue-800);
+
+  font-weight: var(--fw-black);
+}
+
+.proceed_button {
+  width: 100%;
+
+  border: 0;
+  padding: .7rem 0;
+  border-radius: calc(var(--border-radius) / 1.5);
+  cursor: pointer;
+
+  background-color: var(--clr-primary-bright-blue-500);
+  color: white;
+  box-shadow: -0.1rem 1rem 1rem hsl(var(--clr-neutral-dark-blue-800-hsl),.2);
+}
+
+.cancel_button {
+  border: 0;
+  cursor: pointer;
+
+  font-weight: var(--fw-bold);
+}
+
+.price-container a {
+  font-weight: var(--fw-bold);
+}
+
+.proceed_button:is(:hover, :focus-visible) {
+  background-color: hsl(224, 23%, 45%);
+  background: linear-gradient(hsl(var(--clr-primary-bright-blue-500-hsl),.7), hsl(var(--clr-neutral-desaturated-blue-500-hsl)));
+}
+
+.cancel_button:is(:hover, :focus-visible) {
+  color: var(--clr-neutral-dark-blue-800);
+}
+
+.price-container a:is(:hover, :focus-visible) {
+  color: hsl(224, 23%, 55%);
+
+  text-decoration: none;
+}
