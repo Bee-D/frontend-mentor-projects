@@ -88,6 +88,11 @@ h1{
     font-weight: var(--fw-bold);
 }
 
+h1:hover {
+  cursor: pointer;
+  color: var(--clr-primary-yellow);
+}
+
 .image-bg {
     width: 100%;
     border-radius: 1rem;
